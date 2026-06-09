@@ -243,10 +243,7 @@ auth.onAuthStateChanged(user=>{
 
 function fazerLogin(){
   const p=new firebase.auth.GoogleAuthProvider();
-  auth.signInWithPopup(p).catch(()=>{
-    const el=document.getElementById('loginError');
-    el.style.display='block';el.textContent='Erro ao fazer login. Tente novamente.';
-  });
+  auth.signInWithRedirect(p);
 }
 function fazerLogout(){if(confirm('Sair?'))auth.signOut();}
 
